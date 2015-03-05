@@ -20,5 +20,22 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_COPY_FILES_OVERRIDES += \
+    root/fstab.goldfish \
+    root/init.goldfish.rc \
+    recovery/root/fstab.goldfish 
+
+# Set insecure for root access and device specifics
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
+ro.allow.mock.location=1 \
+persist.mtk.aee.aed=on \
+ro.debuggable=1 \
+ro.adb.secure=0 \
+persist.service.acm.enable=0 \
+persist.sys.usb.config=mtp \
+ro.mount.fs=EXT4 \
+ro.persist.partition.support=no \
+ro.cip.partition.support=no
+
 PRODUCT_NAME := full_cp8690
 PRODUCT_DEVICE := cp8690

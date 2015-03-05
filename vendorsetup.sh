@@ -1,0 +1,1 @@
+add_lunch_combo cm_cp8690-userdebug
